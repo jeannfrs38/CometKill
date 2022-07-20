@@ -1,0 +1,42 @@
+{
+ "highscoreEntryList":
+ [
+  {
+    "Score":875800,
+    "Name":"AAA"
+  },
+  {
+    "Score":840000,
+    "Name":"JEA"
+  },
+  {
+    "Score":782100,
+    "Name":"ANN"
+  },
+  {
+    "Score":17100,
+    "Name":"SAM"
+  },
+  {
+    "Score":16700,
+    "Name":"CAR"
+  },
+    
+  {
+    "Score":15300,
+    "Name":"FEP"
+   },
+   {
+    "Score":11100,
+    "Name":"ANA"
+   },
+   {
+     "Score":10000,
+     "Name":"JAN"
+   },
+   {
+     "Score":9000,
+     "Name":"CAL"
+   }
+ ]
+}
