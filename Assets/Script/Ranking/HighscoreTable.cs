@@ -25,6 +25,7 @@ public class HighscoreTable : MonoBehaviour
 
 
         save = new Highscores();
+        
         LoadPlayerData();
         VerificateScore();
         
@@ -56,9 +57,9 @@ public class HighscoreTable : MonoBehaviour
             }
             for (int i = 0; i < save.highscoreEntryList.Count; i++)
             {
-                for (int j = i + 1; j <  save.highscoreEntryList.Count - 1 ; j++)
+                for (int j = i + 1 ; j <  save.highscoreEntryList.Count ; j++)
                 {
-                    if(save.highscoreEntryList[i].Name == save.highscoreEntryList[j].Name && save.highscoreEntryList[j].Score <= save.highscoreEntryList[i].Score )
+                    if(save.highscoreEntryList[i].Name == save.highscoreEntryList[j].Name && save.highscoreEntryList[i].Score >= save.highscoreEntryList[j].Score )
                     {
                         save.highscoreEntryList.Remove(save.highscoreEntryList[j]);
                        
@@ -67,13 +68,13 @@ public class HighscoreTable : MonoBehaviour
 
                 }
             }
-
+            SaveFile();
              highscoreEntryTransformList = new List<Transform>();
             foreach(HighscoreEntry highscoreEntry in save.highscoreEntryList)
             {
                     CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntryTransformList);
             }
-       SaveFile();
+       
 
     }
     private void CreateHighscoreEntryTransform(HighscoreEntry highscoreEntry, Transform container, List<Transform> transformList )
@@ -141,7 +142,7 @@ public class HighscoreTable : MonoBehaviour
         int record =  PlayerPrefs.GetInt("record");
 
 
-            AddHighscoreEntry(record, "YOU");
+        AddHighscoreEntry(record, "YOU");
            
 
     }
