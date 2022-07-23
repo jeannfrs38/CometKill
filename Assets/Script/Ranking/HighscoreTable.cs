@@ -6,29 +6,37 @@ using System.IO;
 
 public class HighscoreTable : MonoBehaviour
 {
-   
+    int record;
+    int recordAntigo;
     private Transform entryContainer;
     private Transform entryTemplate;
-     string saveFile;
+    string saveFile;
     private Highscores save;
     private List<Transform> highscoreEntryTransformList;
 
 
-    public void Awake()
+    public void Start()
     {
-        
+        record =  PlayerPrefs.GetInt("record");
+        recordAntigo =  PlayerPrefs.GetInt("recordAntigo");
+
+
         saveFile =  Application.persistentDataPath + "/" + "highscore.json";
+        if(File.Exists(saveFile))
+        {
+            File.Delete(saveFile);
+        }
         entryContainer = transform.Find("highscoreEntryContainer");
         entryTemplate = entryContainer.Find("highscoreEntryTemplate");
 
         entryTemplate.gameObject.SetActive(false);
-
+        
 
         save = new Highscores();
+       
         
-        LoadPlayerData();
         VerificateScore();
-        
+        LoadPlayerData();
 
         
 
@@ -57,7 +65,7 @@ public class HighscoreTable : MonoBehaviour
             }
             for (int i = 0; i < save.highscoreEntryList.Count; i++)
             {
-                for (int j = i + 1 ; j <  save.highscoreEntryList.Count ; j++)
+                for (int j = i + 1; j <  save.highscoreEntryList.Count  ; j++)
                 {
                     if(save.highscoreEntryList[i].Name == save.highscoreEntryList[j].Name && save.highscoreEntryList[i].Score >= save.highscoreEntryList[j].Score )
                     {
@@ -68,14 +76,15 @@ public class HighscoreTable : MonoBehaviour
 
                 }
             }
-            SaveFile();
+            
+         
              highscoreEntryTransformList = new List<Transform>();
             foreach(HighscoreEntry highscoreEntry in save.highscoreEntryList)
             {
                     CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntryTransformList);
             }
        
-
+        SaveFile();
     }
     private void CreateHighscoreEntryTransform(HighscoreEntry highscoreEntry, Transform container, List<Transform> transformList )
     {
@@ -117,7 +126,9 @@ public class HighscoreTable : MonoBehaviour
                 entryTransform.Find("posText").GetComponent<Text>().color =  Color.green;
                  entryTransform.Find("scoreText").GetComponent<Text>().color = Color.green;
                   entryTransform.Find("nameText").GetComponent<Text>().color = Color.green;
+                
             }
+            
              transformList.Add(entryTransform);
     }
 
@@ -139,10 +150,13 @@ public class HighscoreTable : MonoBehaviour
 
     public void VerificateScore()
     {
-        int record =  PlayerPrefs.GetInt("record");
+        if(record > recordAntigo)
+        {
+            AddHighscoreEntry(record, "YOU");
+        }
 
 
-        AddHighscoreEntry(record, "YOU");
+        
            
 
     }
@@ -167,63 +181,63 @@ public class HighscoreTable : MonoBehaviour
     {
         if (File.Exists(saveFile))
         {
-                if(Application.platform == RuntimePlatform.Android)
-            {
-                save.highscoreEntryList  = new List<HighscoreEntry>();
-                string path =  Path.Combine(saveFile);
-                string jsonString = File.ReadAllText(path);
+            // if(Application.platform == RuntimePlatform.Android)
+            // {
+            //     save.highscoreEntryList  = new List<HighscoreEntry>();
+            //     string path =  Path.Combine(saveFile);
+            //     string jsonString = File.ReadAllText(path);
 
 
-                // WWW reader = new WWW(path);
-                // while (!reader.isDone) { }
-                // jsonString = reader.text;
-                if (jsonString != null || jsonString != "")
-                {
+            //     // WWW reader = new WWW(path);
+            //     // while (!reader.isDone) { }
+            //     // jsonString = reader.text;
+            //     if (jsonString != null || jsonString != "")
+            //     {
 
-                    Highscores temp  = JsonUtility.FromJson<Highscores>(jsonString);
-                    Debug.Log("Dados carregados:\n" + jsonString);
-                    if(temp != null)
-                    {
-                        save = temp;
-                        Debug.Log("Dados carregados com sucesso");
-                    }
+            //         Highscores temp  = JsonUtility.FromJson<Highscores>(jsonString);
+            //         Debug.Log("Dados carregados:\n" + jsonString);
+            //         if(temp != null)
+            //         {
+            //             save = temp;
+            //             Debug.Log("Dados carregados com sucesso");
+            //         }
 
-                    else
-                    {
-                        Debug.Log("Erro ao carregar os dados: Nenhum elemento na lista");
+            //         else
+            //         {
+            //             Debug.Log("Erro ao carregar os dados: Nenhum elemento na lista");
 
-                    }
-                }
-            }else
-            {
-                save.highscoreEntryList  = new List<HighscoreEntry>();
+            //         }
+            //     }
+            // }else
+            // {
+            save.highscoreEntryList  = new List<HighscoreEntry>();
 
-                string path =  Path.Combine(saveFile);
-                string jsonString = File.ReadAllText(path);
+            string path =  Path.Combine(saveFile);
+            string jsonString = File.ReadAllText(path);
+            save = JsonUtility.FromJson<Highscores>(jsonString);
+            // if (jsonString != null || jsonString != "")
+            // {
 
-                if (jsonString != null || jsonString != "")
-                {
+                
+            //     Debug.Log("Dados carregados:\n" + jsonString);
+            //     if(temp != null)
+            //     {
+            //         save = temp;
+            //         Debug.Log("Dados carregados com sucesso");
+            //     }
 
-                    Highscores temp  = JsonUtility.FromJson<Highscores>(jsonString);
-                    Debug.Log("Dados carregados:\n" + jsonString);
-                    if(temp != null)
-                    {
-                        save = temp;
-                        Debug.Log("Dados carregados com sucesso");
-                    }
+            //     else
+            //     {
+            //         Debug.Log("Erro ao carregar os dados: Nenhum elemento na lista");
 
-                    else
-                    {
-                        Debug.Log("Erro ao carregar os dados: Nenhum elemento na lista");
+            //     }
+                // }
+                // else
+                // {
+                //     Debug.Log("Erro ao carregar os dados:\n" + jsonString);
+                // }
 
-                    }
-                }
-                else
-                {
-                    Debug.Log("Erro ao carregar os dados:\n" + jsonString);
-                }
-
-            }
+            // }
 
         }else 
         {

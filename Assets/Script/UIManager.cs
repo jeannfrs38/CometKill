@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
 
     public int record;
     public  static UIManager uiManagerInstance;
-    public HighscoreTable _highscoreTable;
+    
 
     void Awake()
     {
@@ -31,9 +31,10 @@ public class UIManager : MonoBehaviour
         }
         
         record = PlayerPrefs.GetInt("record", 0);
+        recordAntigo = PlayerPrefs.GetInt("recordAntigo", 0);
         
         recordTxt.text = record.ToString();
-        _highscoreTable =  FindObjectOfType(typeof(HighscoreTable)) as HighscoreTable;
+       
         
         
         
@@ -45,7 +46,8 @@ public class UIManager : MonoBehaviour
         scoreTxt.text =  score.ToString();
         if(record < score)
         {
-            
+            recordAntigo = record;
+            PlayerPrefs.SetInt("recordAntigo", recordAntigo);
             record = score;
             PlayerPrefs.SetInt("record", record);
             recordTxt.text =  record.ToString();
@@ -54,15 +56,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    // public void AddRecordRanking()
-    // {
-    //     if(record > recordAntigo)
-    //     {
-           
-    //         recordAntigo = record;
-    //         PlayerPrefs.SetInt("recordAntigo", recordAntigo);
-    //     }
-    // }
+    
     public void SceneNext()
     {
        
