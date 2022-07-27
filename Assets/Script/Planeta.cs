@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Planeta : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class Planeta : MonoBehaviour
         if(life == 0)
         {
             meshMaterial.material = new Material(materiais[2]);
-            _uiManager.SceneNext();
+            _uiManager.SceneNext("Ranking");
            
         }
     }

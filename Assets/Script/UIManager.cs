@@ -19,21 +19,26 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         
-        
         if (uiManagerInstance == null)
         {
             uiManagerInstance = this;
-            DontDestroyOnLoad(this.gameObject);
+        //     DontDestroyOnLoad(this.gameObject);
+           
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        // else
+        // {
+        //     Destroy(gameObject);
+        // }
+       
+        
         
         record = PlayerPrefs.GetInt("record", 0);
+       
         recordAntigo = PlayerPrefs.GetInt("recordAntigo", 0);
         
         recordTxt.text = record.ToString();
+
+       
        
         
         
@@ -56,12 +61,23 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    
-    public void SceneNext()
+    private void Update() 
+    {
+         if( recordTxt == null && scoreTxt == null)
+        {
+            score = 0;
+            recordTxt = GameObject.Find("RecordTxt").GetComponent<Text> ();
+            scoreTxt = GameObject.Find("ScoreTxt").GetComponent<Text> ();
+           
+        }
+    }
+    public void SceneNext(string scene)
     {
        
-        SceneManager.LoadScene("Ranking");
+        SceneManager.LoadScene(scene);
+        
         
         
     }
 }
+     
