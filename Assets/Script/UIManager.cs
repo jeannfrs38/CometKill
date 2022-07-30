@@ -11,14 +11,14 @@ public class UIManager : MonoBehaviour
     public Text recordTxt;
     public int score;
     public int recordAntigo;
-
+    public GameObject panelPause;
     public int record;
     public  static UIManager uiManagerInstance;
     
 
     void Awake()
     {
-        
+       Time.timeScale =2f;
         if (uiManagerInstance == null)
         {
             uiManagerInstance = this;
@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
         // {
         //     Destroy(gameObject);
         // }
-       
+
         
         
         record = PlayerPrefs.GetInt("record", 0);
@@ -78,6 +78,26 @@ public class UIManager : MonoBehaviour
         
         
         
+    }
+
+
+    public void PausePanel()
+    {
+        if (panelPause.gameObject.activeSelf == true)
+        {
+            panelPause.gameObject.SetActive(false);
+            Time.timeScale = 1f;
+        }
+        else if (panelPause.gameObject.activeSelf ==  false)
+        {
+            panelPause.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
+
+     public void ExitGame()
+    {
+        Application.Quit();
     }
 }
      

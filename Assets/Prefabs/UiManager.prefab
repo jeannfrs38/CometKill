@@ -47,4 +47,5 @@ MonoBehaviour:
   recordTxt: {fileID: 0}
   score: 0
   recordAntigo: 0
+  panelPause: {fileID: 0}
   record: 0
