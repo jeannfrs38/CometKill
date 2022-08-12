@@ -48,4 +48,6 @@ MonoBehaviour:
   score: 0
   recordAntigo: 0
   panelPause: {fileID: 0}
+  panelSound: {fileID: 0}
+  panelMenu: {fileID: 0}
   record: 0

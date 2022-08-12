@@ -6,7 +6,7 @@ public class lazer : MonoBehaviour
 {
 
      public GameObject lazerTrailPrefab;
-     public float minCuttingVelocity = .001f;
+     public float minCuttingVelocity = 1f;
      GameObject currentLazerTrail;
      public bool isCutting = false;
       Rigidbody2D rb;
@@ -56,13 +56,13 @@ public class lazer : MonoBehaviour
                 if(positionTouch.y <= 4.5f)
                 {
                     Ray ray = Camera.main.ScreenPointToRay(touch.position);
-        
+                    
                     if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
                     {
                     
                         Destroy(hit.transform.gameObject);
                         _uiManager.AddScore(100);
-                    
+                        AudioManager.audioManagerInstace.PlayAudioOne(3);
                    
                     
                     print("Hit something!");
@@ -78,20 +78,20 @@ public class lazer : MonoBehaviour
             {
                 StartCutting();
                 positionTouch = cam.ScreenToWorldPoint(touch.position);
-                
-                
+               
                 int layerMask2 = 1 << 12;
                 if(positionTouch.y <= 4.5f)
                 {
                     Ray ray2 = Camera.main.ScreenPointToRay(touch.position);
-        
+
                     if (Physics.Raycast(ray2, out hit2, Mathf.Infinity, layerMask2))
                     {
                         Instantiate(asteroideM, hit2.transform.position, hit2.transform.rotation);
                    
                         Destroy(hit2.transform.gameObject);
                         _uiManager.AddScore(200);
-                    
+                        AudioManager.audioManagerInstace.StopEffect(3);
+                        AudioManager.audioManagerInstace.PlayAudioOne(4);
                     
                     
                         
