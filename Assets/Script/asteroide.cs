@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class asteroide : MonoBehaviour
 {
-    
+    public GameObject particleExplosion;
     void Start()
     {
         
@@ -23,6 +23,22 @@ public class asteroide : MonoBehaviour
         if(other.gameObject.CompareTag("Planeta"))
         {
             Destroy(this.gameObject);
+            AudioManager.audioManagerInstace.PlayAudioOne(6);
+            Instantiate(particleExplosion, transform.position, Quaternion.identity);
+
+        }
+        if(other.gameObject.CompareTag("Shield"))
+        {
+            Destroy(this.gameObject);
+            AudioManager.audioManagerInstace.PlayAudioOne(7);
+            Instantiate(particleExplosion, transform.position, Quaternion.identity);
+
+        }
+        if(other.gameObject.CompareTag("Life"))
+        {
+            Destroy(this.gameObject);
+            AudioManager.audioManagerInstace.PlayAudioOne(7);
+            Instantiate(particleExplosion, transform.position, Quaternion.identity);
 
         }
     }

@@ -243,13 +243,13 @@ public class HighscoreTable : MonoBehaviour
         {
            save.highscoreEntryList = new List<HighscoreEntry>()
            {
-                new HighscoreEntry{ Score =  875800, Name = "AAA"},
-                new HighscoreEntry{ Score =  840000, Name = "JEA"},
-                new HighscoreEntry{ Score =  782100, Name = "ANN"},
-                new HighscoreEntry{ Score =  17100, Name = "SAM"},
+                new HighscoreEntry{ Score =  100580, Name = "AAA"},
+                new HighscoreEntry{ Score =  84000, Name = "JEA"},
+                new HighscoreEntry{ Score =  78210, Name = "ANN"},
+                new HighscoreEntry{ Score =  35100, Name = "SAM"},
                 new HighscoreEntry{ Score =  16700, Name = "CAR"},
-                new HighscoreEntry{ Score =  15300, Name = "FEP"},
-                new HighscoreEntry{ Score =  11100, Name = "ANA"},
+                new HighscoreEntry{ Score =  25300, Name = "FEP"},
+                new HighscoreEntry{ Score =  15100, Name = "ANA"},
                 new HighscoreEntry{ Score =  10000, Name = "JAN"},
                 new HighscoreEntry{ Score =  9000, Name = "CAL"},
            };

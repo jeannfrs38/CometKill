@@ -9,6 +9,8 @@ TagManager:
   - asteroide
   - lazer
   - asteroide2
+  - Shield
+  - Life
   layers:
   - Default
   - TransparentFX
@@ -24,8 +26,8 @@ TagManager:
   - asteroides
   - asteroides2
   - lazer
-  - 
-  - 
+  - BonusLife
+  - BonusShield
   - 
   - 
   - 

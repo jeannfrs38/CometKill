@@ -42,6 +42,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbbf304b3041b980cb00a13178f670db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleExplosion: {fileID: 8043464336480518523, guid: 9cf9dccce2d7ca882b874db22836c7bf,
+    type: 3}
 --- !u!1001 &5831905316240713254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49,51 +51,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7642553229612370494}
     m_Modifications:
-    - target: {fileID: 1434949969724674344, guid: a033e4d4d96103d3da9e2023f39046c8,
-        type: 3}
-      propertyPath: lengthInSec
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1434949969724674344, guid: a033e4d4d96103d3da9e2023f39046c8,
-        type: 3}
-      propertyPath: useUnscaledTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1434949969724674344, guid: a033e4d4d96103d3da9e2023f39046c8,
-        type: 3}
-      propertyPath: startDelay.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1434949969724674344, guid: a033e4d4d96103d3da9e2023f39046c8,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1434949969724674344, guid: a033e4d4d96103d3da9e2023f39046c8,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1434949969724674344, guid: a033e4d4d96103d3da9e2023f39046c8,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1434949969724674344, guid: a033e4d4d96103d3da9e2023f39046c8,
-        type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1434949969724674344, guid: a033e4d4d96103d3da9e2023f39046c8,
-        type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1434949969724674344, guid: a033e4d4d96103d3da9e2023f39046c8,
-        type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1434949969724674346, guid: a033e4d4d96103d3da9e2023f39046c8,
         type: 3}
       propertyPath: m_Name

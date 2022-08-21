@@ -12,6 +12,8 @@ public class Spanw : MonoBehaviour
 
     [SerializeField] public float xMax;
     [SerializeField] public float xMin;
+    [SerializeField] public float yMax;
+    [SerializeField] public float yMin;
 
 
     public GameObject asteroides;

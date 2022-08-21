@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2110123023941281232}
+  - component: {fileID: 7474372136461014698}
   m_Layer: 11
   m_Name: AsteroideCortado
   m_TagString: asteroide2
@@ -32,6 +33,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7474372136461014698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3502304792021475110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e24d6c5e58899c4e38596c2275cbe400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroide1: {fileID: 1199301752996762488}
+  asteroide2: {fileID: 3861969579890864694}
 --- !u!1001 &6888173667370050600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -106,6 +121,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c08189e0d3ef58a5a42781c45c387f4, type: 3}
+--- !u!1 &3861969579890864694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7642553229611947550, guid: 0c08189e0d3ef58a5a42781c45c387f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6888173667370050600}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3861969579891093014 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7642553229612370494, guid: 0c08189e0d3ef58a5a42781c45c387f4,
@@ -186,6 +207,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c08189e0d3ef58a5a42781c45c387f4, type: 3}
+--- !u!1 &1199301752996762488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7642553229611947550, guid: 0c08189e0d3ef58a5a42781c45c387f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8839171048284407142}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1199301752997252952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7642553229612370494, guid: 0c08189e0d3ef58a5a42781c45c387f4,
