@@ -28,8 +28,8 @@ public class SpanwBonus: MonoBehaviour
         _planeta =  FindObjectOfType(typeof(Planeta)) as Planeta;
         intervalo = RandomNumber(30, 240);
         intervalo2 = RandomNumber(30, 240);
-        ultimoIntervalo =0;
-        ultimoIntervalo2 =0;
+        ultimoIntervalo = Time.time;
+        ultimoIntervalo2 = Time.time;
     }
     void Update()
     {

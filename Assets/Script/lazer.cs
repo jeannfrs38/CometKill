@@ -54,13 +54,13 @@ public class lazer : MonoBehaviour
             {
                 
                 positionTouch = cam.ScreenToWorldPoint(touch.position);
+                
                
                 
                 int layerMask = 1 << 11;
                 int layerMask1 = 1 << 14;
                 int layerMask3 = 1 << 15;
-                if(positionTouch.y <= 4.5f)
-                {
+                
                     Ray ray = Camera.main.ScreenPointToRay(touch.position);
                     
                     if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
@@ -100,7 +100,7 @@ public class lazer : MonoBehaviour
                         AudioManager.audioManagerInstace.StopEffect(8);
 
                     } 
-                }
+                
                
                 
             }
@@ -112,8 +112,7 @@ public class lazer : MonoBehaviour
                 positionTouch = cam.ScreenToWorldPoint(touch.position);
                
                 int layerMask2 = 1 << 12;
-                if(positionTouch.y <= 4.5f)
-                {
+                
                     Ray ray2 = Camera.main.ScreenPointToRay(touch.position);
 
                     if (Physics.Raycast(ray2, out hit2, Mathf.Infinity, layerMask2))
@@ -133,10 +132,10 @@ public class lazer : MonoBehaviour
                 
                     } 
                     
-                    StartCoroutine(TrailEmission(0.08f));
+                    StartCoroutine(TrailEmission(0.09f));
                     
                     
-                }
+                
                 
                 
 
